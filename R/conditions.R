@@ -38,6 +38,7 @@ conditions <- function(location,
 
   cond <- parsed_req$current_observation
   loc <- parsed_req$current_observation$display_location
+  obs <- parsed_req$current_observation$observation_location
 
   if (message) {
     print(paste0("Conditions for: ", cond$display_location$full))
@@ -61,8 +62,14 @@ conditions <- function(location,
   }
 
   df <- data.frame(
-    city = loc$city,#AGC
+    address = obs$full,#AGC
+    state = loc$state,#AGC
+    country = loc$country,#AGC
+    lat = obs$latitude,#AGC
+    lon = obs$longitude,#AGC
+    elevation = loc$elevation,#AGC obs has 0ft for Lynn Valley
     time = cond$observation_time, #AGC works
+    station_id= cond$station_id, #AGC
     weather = cond$weather,
     icon_url = cond$icon_url, #AGC works
     temp = as.numeric(cond[[paste0("temp_", degree)]]),
