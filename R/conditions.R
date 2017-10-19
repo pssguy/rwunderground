@@ -37,6 +37,7 @@ conditions <- function(location,
   }
 
   cond <- parsed_req$current_observation
+  #loc <- parsed_req$current_observation
 
   if (message) {
     print(paste0("Conditions for: ", cond$display_location$full))
@@ -60,7 +61,10 @@ conditions <- function(location,
   }
 
   df <- data.frame(
+    city = cond$city,#AGC
+    time = cond$observation_time, #AGC
     weather = cond$weather,
+    icon_url = cond$icon_url, #AGC
     temp = as.numeric(cond[[paste0("temp_", degree)]]),
     pct_humidity = as.numeric(gsub("%", "", cond$relative_humidity)),
     wind_spd = as.numeric(cond[[paste0("wind_", speed)]]),
