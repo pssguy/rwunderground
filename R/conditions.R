@@ -66,6 +66,7 @@ conditions <- function(location,
     wind_spd = as.numeric(cond[[paste0("wind_", speed)]]),
     wind_spd_gust = as.numeric(cond[[paste0("wind_gust_", speed)]]),
     wind_dir = cond$wind_dir,
+    wind_text = cond$wind_string,  #AGC
     pressure = as.numeric(cond[[paste0("pressure_", pres)]]),
     dew_pt = as.numeric(cond[[paste0("dewpoint_", degree)]]),
     heat_index = as.numeric(cond[[paste0("heat_index_", degree)]]),
