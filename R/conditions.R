@@ -61,7 +61,7 @@ conditions <- function(location,
   }
 
   df <- data.frame(
-    city = cond$city,#AGC
+    #city = cond$city,#AGC
     time = cond$observation_time, #AGC
     weather = cond$weather,
     icon_url = cond$icon_url, #AGC
@@ -70,7 +70,7 @@ conditions <- function(location,
     wind_spd = as.numeric(cond[[paste0("wind_", speed)]]),
     wind_spd_gust = as.numeric(cond[[paste0("wind_gust_", speed)]]),
     wind_dir = cond$wind_dir,
-    wind_text = cond$wind_string,  #AGC
+    wind_text = cond$wind_string,  #AGC works
     pressure = as.numeric(cond[[paste0("pressure_", pres)]]),
     dew_pt = as.numeric(cond[[paste0("dewpoint_", degree)]]),
     heat_index = as.numeric(cond[[paste0("heat_index_", degree)]]),
